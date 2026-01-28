@@ -1,14 +1,14 @@
 import { requireAuth } from "@/lib/better-auth/auth-utils";
-import { caller } from "@/trpc/server";
+import Logout from "./logout";
 
 export default async function Home() {
- await requireAuth();
+  await requireAuth();
 
- const data = await caller.getUser()
- 
+  const data = await caller.getUsers();
+
   return (
-   <div>
-   
-   </div>
+    <div>
+      <Logout />{" "}
+    </div>
   );
 }
